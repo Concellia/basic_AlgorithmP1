@@ -1,31 +1,53 @@
-class JamBuddy{
-    constructor(){
-        this.semitone = ['A','A#','B','C','C#','D','D#','E','F','F#','G','G#']
-        this.selectedNotes = []
+class JamBuddy {
+  constructor() {
+    this.semitone = [
+      "A",
+      "A#",
+      "B",
+      "C",
+      "C#",
+      "D",
+      "D#",
+      "E",
+      "F",
+      "F#",
+      "G",
+      "G#"
+    ];
+    this.selectedNotes = [];
+  }
+
+  selectNotes() {
+
+    for (let i = 1; i <= 2; i++) {
+      var randomised = Math.floor(Math.random() * this.semitone.length);
+      this.selectedNotes.push(this.semitone[randomised]);
     }
 
-    selectNotes(){
-        for(let i = 1;i<=2;i++){
-            var randomised = Math.floor(Math.random()*this.semitone.length)
-            this.selectedNotes.push(this.semitone[randomised])
+    return document.getElementById(
+      "selectedNotes"
+    ).innerHTML = this.selectedNotes;
+  }
 
-        }
-
-        return this.selectedNotes
+  checkAnswer() {
+    let correctAnswer = Math.abs(
+      this.semitone.indexOf(this.selectedNotes[0]) -
+        this.semitone.indexOf(this.selectedNotes[1])
+    );
+    let val = document.getElementById("answer").value;
+    if (val == ""|| document.getElementById("selectedNotes").innerHTML == "") {
+      return document.getElementById("response").innerHTML =
+        "Please select notes and enter your answer!!";
     }
-    checkAnswer(answer){
-        let correctAnswer = Math.abs(this.semitone.indexOf(this.selectedNotes[0])-this.semitone.indexOf(this.selectedNotes[1]))
-        if(answer===correctAnswer){
-            return true
-        }else{
-            return false
-        }
-    
+    if (val == correctAnswer) {
+      return document.getElementById("response").innerHTML =
+        "You got it right. Well Done"
+    } else {
+      return document.getElementById("response").innerHTML =
+        "Wrong answer!! Try again the correct answer is: " + correctAnswer;
     }
+  }
 }
 
-var buddy = new JamBuddy()
-console.log(buddy.selectNotes())
-console.log(buddy.checkAnswer(5))
-
+var buddy = new JamBuddy();
 module.exports = JamBuddy;
