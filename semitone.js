@@ -19,7 +19,7 @@ class JamBuddy {
 
   selectNotes() {
     let newArray =
-    this.semitone.map(function(value,index){
+    this.semitone.map(function(value){
       if(value.length==2){
         for(let i = 1; i<=1;i++){
           var randomised = Math.floor(Math.random() * 2);
