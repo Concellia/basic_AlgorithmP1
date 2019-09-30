@@ -6,7 +6,7 @@ body {
 div {
   background-color: #00b760;
   width: 50%;
-  height: 700px;
+  height: 750px;
   margin-left: 25%;
   margin-right: 20%;
   margin-top: 10%;
@@ -62,4 +62,27 @@ p {
   -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
   -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
   transition: all 0.3s ease 0s;
+}
+#reveal {
+  border: none;
+  background: #004f6d;
+  color: #ffffff !important;
+  padding: 20px;
+  border-radius: 6px;
+  display: inline-block;
+  font-size: 18px;
+}
+
+#reveal:hover {
+  cursor: pointer;
+  color: black !important;
+  letter-spacing: 3px;
+  background: white;
+}
+
+#count {
+  padding: 1%;
+  margin-bottom: 40px;
+  font-size: 20px;
+  margin-top: 0p;
 }

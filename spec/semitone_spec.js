@@ -36,5 +36,51 @@ describe("Jambuddy", function() {
   it("check answer function should return true or false", function() {
     expect(jambuddy.checkAnswer()).toEqual(jasmine.any(String));
   });
-});
 
+  it("should be able to display the array of the semitone", function() {
+    expect(jambuddy.reveal()).toEqual([
+      "A",
+      "A#",
+      "Bb",
+      "B",
+      "C",
+      "C#",
+      "Db",
+      "D",
+      "D#",
+      "Eb",
+      "E",
+      "F",
+      "F#",
+      "Gb",
+      "G",
+      "G#",
+      "Ab"
+    ]);
+  });
+
+  it("should be able to display the answer", function() {
+    expect(global.document.getElementById("correct").innerHTML).toBe("");
+    jambuddy.correctAnswer();
+    expect(global.document.getElementById("correct").innerHTML).toContain(
+      "The Answer is: NaN"
+    );
+  });
+
+  it("should be able to hide the explanation button", function() {
+    expect(global.document.getElementById("reveal").style.display).toBe("");
+    expect(global.document.getElementById("correct").style.display).toBe("");
+    expect(global.document.getElementById("reveal-answer").style.display).toBe(
+      ""
+    );
+    jambuddy.hide();
+
+    expect(global.document.getElementById("reveal").style.display).toBe("none");
+    expect(global.document.getElementById("correct").style.display).toBe(
+      "none"
+    );
+    expect(global.document.getElementById("reveal-answer").style.display).toBe(
+      "none"
+    );
+  });
+});
